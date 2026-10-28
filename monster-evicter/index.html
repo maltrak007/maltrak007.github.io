@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monster Evicter | Gonzalo Liñán</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+/* ===================== EDIT HERE =====================
+   MEDIA: one entry per "Deep dive" section, in order (01, 02, 03...).
+   Put your GIF / image / MP4 in the repo folder media/projects/ and write
+   its path like "../media/projects/combat-loop.gif",
+   or paste a YouTube link like "https://youtu.be/XXXXXXXXXXX".
+   Leave "" to show the styled title card instead.
+   Big MP4s (>~25 MB) are better on YouTube. */
+var PROJECT = "monster-evicter";
+var MEDIA = {
+  "the-9th-dragon": ["", "", "", "", ""],
+  "ghunter":        ["", "", "", "", ""],
+  "hobo-league":    ["", "", "", "", ""],
+  "monster-evicter":["", "", "", ""]
+};
+var HERO_MEDIA = { "hobo-league": "", "monster-evicter": "" };
+/* ===================================================== */
+</script>
+<style>
+:root{--ink:#1A1408;--ink-2:#4A3F1E;--paper:#FFFBEA;--yellow:#FFE52C;--amber:#FAA622;--cyan:#7FE6EF;--lime:#C4D70C;--crimson:#C22303;--display:'Archivo','Arial Narrow','Helvetica Neue',Arial,sans-serif;--body:'Figtree','Helvetica Neue',Arial,sans-serif;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0;background:var(--yellow)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;background:repeating-linear-gradient(-45deg,var(--yellow) 0 22px,#FFDF1F 22px 44px)}
+a{color:inherit}img,video{display:block;max-width:100%}button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.05}p{margin:0}ul{margin:0;padding-left:1.15em}
+#page{max-width:1280px;margin:0 auto;padding:36px 64px 56px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:15px;padding:9px 18px;border-radius:10px;border:3px solid var(--ink);background:var(--paper);box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.btn.primary{background:var(--crimson);color:#fff}
+.btn.dark{background:var(--ink);color:var(--yellow)}
+.who{font-family:var(--display);font-weight:900;font-size:18px;font-stretch:108%}
+.hero{margin-top:34px;background:var(--paper);border:4px solid var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.hero-head{padding:34px 40px 28px}
+.kicker{color:var(--crimson);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.hero h1{margin-top:8px;font-size:72px;font-weight:900;font-stretch:112%;letter-spacing:-.01em;text-shadow:5px 5px 0 var(--amber)}
+.sub{margin-top:14px;font-size:20px;color:var(--ink-2);max-width:62ch}
+.awards{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.award{font-size:13px;font-weight:800;padding:5px 12px;border-radius:8px;background:var(--lime);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:4px solid var(--ink)}
+.fact{padding:16px 22px;border-right:3px solid var(--ink);font-size:15px;font-weight:600}
+.fact:last-child{border-right:0}
+.fact:nth-child(4n+1){background:var(--yellow)}.fact:nth-child(4n+2){background:var(--amber)}.fact:nth-child(4n+3){background:var(--cyan)}.fact:nth-child(4n+4){background:var(--lime)}
+.fact b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.slot{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.hero .slot{border-top:4px solid var(--ink)}
+.slot img,.slot video{width:100%;height:100%;object-fit:cover}
+.slot iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.slot .play{position:absolute;inset:0;width:100%;border:0;padding:0;cursor:pointer;background:rgba(0,0,0,.05)}
+.slot .play span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:var(--crimson);display:grid;place-items:center;border:4px solid var(--ink);box-shadow:0 0 0 5px var(--yellow),6px 6px 0 5px var(--ink);transition:transform .15s}
+.slot .play:hover span{transform:translate(-50%,-50%) scale(1.08)}
+.slot .play svg{width:34px;height:34px;fill:#fff;margin-left:5px}
+.card{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 28px;background:repeating-linear-gradient(-45deg,var(--c1) 0 26px,var(--c2) 26px 52px)}
+.card .num{font-family:var(--display);font-weight:900;font-size:110px;line-height:.8;color:var(--paper);-webkit-text-stroke:3px var(--ink);text-shadow:6px 6px 0 var(--ink)}
+.card .lbl{margin-top:14px;align-self:flex-start;background:var(--paper);border:3px solid var(--ink);border-radius:8px;padding:4px 12px;font-family:var(--display);font-weight:900;font-size:20px;box-shadow:3px 3px 0 var(--ink)}
+.card .soon{margin-top:8px;align-self:flex-start;background:var(--ink);color:var(--yellow);font-weight:800;font-size:12px;padding:3px 10px;border-radius:6px;letter-spacing:.06em;text-transform:uppercase}
+.sec-title{display:flex;align-items:center;gap:18px;margin:64px 0 26px}
+.sec-title h2{font-size:34px;font-weight:900;font-stretch:108%;background:var(--cyan);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:6px 18px 8px;transform:rotate(-1.5deg)}
+.sec-title::after{content:"";flex:1;height:4px;background:var(--ink);border-radius:4px}
+.overview{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+.box{background:var(--paper);border:4px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);padding:28px 30px}
+.overview .box p{font-size:18px;color:var(--ink-2)}
+.role h3{font-size:22px;font-weight:900}
+.role ul{margin-top:12px;color:var(--ink-2)}
+.role li{margin-bottom:6px}.role li::marker{color:var(--crimson)}
+.role{background:var(--lime)}
+.role ul{color:var(--ink)}
+.deep{display:grid;gap:34px}
+.row{display:grid;grid-template-columns:1fr 1.15fr;gap:30px;align-items:center}
+.row.flip .media{order:2}
+.row .media{border:4px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+.row h3{font-size:30px;font-weight:900;font-stretch:106%}
+.row .tag{display:inline-block;margin-bottom:10px;background:var(--crimson);color:#fff;border:2px solid var(--ink);border-radius:6px;font-weight:800;font-size:12px;padding:2px 10px;letter-spacing:.06em}
+.row p{margin-top:12px;color:var(--ink-2);font-size:17px}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.end{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:64px;background:var(--crimson);border:4px solid var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--ink);padding:34px 38px;color:#fff}
+.end h2{font-size:40px;font-weight:900;color:var(--yellow);text-shadow:4px 4px 0 var(--ink)}
+.end p{margin-top:8px;color:#FFF3E6}
+.end .btn{color:var(--ink)}
+.end .btn.next{background:var(--yellow)}
+footer{margin-top:34px;font-size:14px;font-weight:600}
+/* mobile: designed at 400px */
+@media (max-width:1000px){
+#page{padding:28px 28px 48px}
+.overview,.row,.end{grid-template-columns:1fr}
+.row.flip .media{order:0}
+.facts{grid-template-columns:1fr 1fr}
+.fact{border-bottom:3px solid var(--ink)}
+.fact:nth-child(2n){border-right:0}
+}
+@media (max-width:759px){
+html,body{overflow-x:hidden}
+#page{padding:22px 16px 40px}
+.who{display:none}
+.hero-head{padding:24px 20px 20px}
+.hero h1{font-size:42px}
+.sub{font-size:17px}
+.facts{grid-template-columns:1fr 1fr}
+.fact{padding:12px 14px;border-bottom:3px solid var(--ink)}
+.fact:nth-child(2n){border-right:0}
+.slot .play span{width:66px;height:66px}
+.card .num{font-size:70px}
+.card .lbl{font-size:16px}
+.sec-title{margin:46px 0 20px}
+.sec-title h2{font-size:26px}
+.overview,.row,.end{grid-template-columns:1fr}
+.row.flip .media{order:0}
+.row h3{font-size:24px}
+.box{padding:22px 20px}
+.end{padding:26px 20px}
+.end h2{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="page"></div>
+<script>
+var DATA={
+"the-9th-dragon":{title:"The 9th Dragon",kicker:"Gameplay Programmer / Combat Designer",
+ sub:"A brutal, tactical beat-’em-up set in Kowloon Walled City. I owned the combat pillar end to end through final production.",
+ facts:[["Studio","FrameOver (freelance)"],["Publisher","Headup Games"],["Engine","Unreal Engine 5"],["Time on project","May – Sep 2026"]],
+ yt:"d5sHUQhCVeY",
+ overview:"I joined FrameOver as a freelance gameplay programmer and combat designer for the final production stretch of The 9th Dragon. My job was the combat pillar: the player’s moveset, the enemies on the other side, the feel of every hit and the balance that ties it together, delivered against Headup Games’ milestone feedback.",
+ role:["Combat design and gameplay programming","Enemy AI and Behavior Tree architecture","Game feel, balancing and onboarding","Combat QA and backlog ownership"],
+ sections:[
+  ["Core combat loop","I rebuilt the core loop around readable, rewarding exchanges: combos with input buffering, a parry with unique counterattacks, dynamic finishers driven by Motion Warping, and stamina and vulnerability states that decide when an enemy can be punished. The result is a reworked flow of combat where every opening is earned."],
+  ["Enemy AI & data-driven combat","I refactored the enemy Behavior Tree architecture into a modular enemy base. Weapons live in data tables, so any enemy can use any weapon without code, and a proxy Behavior Tree switches enemies between melee and ranged based on distance and ammunition. The system covers 10 enemy types, each with its own moveset, plus bosses."],
+  ["Game feel","Hit-stop on combo enders, camera shake scaled to move strength, slow motion on finisher impact, and variable knockback with chain damage between enemies. Small layers that make every blow land."],
+  ["Spatial detection & positioning","I built a reusable multi-sphere detection system that resolves the player, enemies and level geometry for combat logic, and used those spatial queries so enemies position themselves smarter around the player."],
+  ["Balancing & onboarding","I tuned time-to-kill per enemy type and per level from central data tables across 40 enemy variants, and built 15+ tutorials with input validation and completion gating, collectible-driven combo progression, the combat HUD and combat audio."]],
+ links:[["Watch trailer","https://www.youtube.com/watch?v=d5sHUQhCVeY",1],["View on Steam","https://store.steampowered.com/app/4402330/The_9th_Dragon/"],["My code","https://github.com/maltrak007/Demo-Combat-Showcase"]],
+ next:"ghunter"},
+"ghunter":{title:"Ghunter",kicker:"AI Programmer & Combat Designer",
+ sub:"An action-adventure cooking game by Tiny Tavern. Uncover the mysteries of Garcosa, hunt your prey and save the King with your dishes.",
+ awards:["Best University Indie Project, BIG Bilbao","2nd place, Guerrilla Games Festival"],
+ facts:[["Studio","Tiny Tavern (team)"],["Engine","Unreal Engine 5, C++"],["Genre","Top-down action-adventure"],["Time on project","Jan – Nov 2024"]],
+ yt:"yjipXpGEbDo",
+ overview:"On Ghunter I owned the enemies: the AI framework they run on, the variants built on top of it and the difficulty of the fights they create. The goal was a workflow where designers could assemble new enemies from reusable pieces instead of waiting on code.",
+ role:["AI programming on the Gameplay Ability System","Enemy variant design","Combat difficulty and playtesting","Encounter and level breakdowns"],
+ sections:[
+  ["A designer-friendly AI framework","I built the enemy AI on Unreal’s Gameplay Ability System: modular Gameplay Abilities combined with AI Perception and Behavior Trees. A custom Library Ability Task produces enemy variations quickly, so new enemies are assembled rather than rewritten."],
+  ["Enemy variants with unique abilities","Each variant has its own signature ability: self-duplicating clones, kamikaze explosions, long-range wave emitters, sand wall traps and meteor strikes. One framework, very different fights."],
+  ["Perception & Behavior Trees","Enemies react through AI Perception and Behavior Trees with custom nodes driven by environmental hazards and enemy stats, which keeps engagements reactive instead of scripted."],
+  ["Playtesting & difficulty","I iterated combat difficulty from structured playtesting feedback, adjusting enemy behaviours, timing windows and stat scaling until fights felt fair and readable."],
+  ["Encounter design","I authored level blueprints and encounter breakdowns covering pacing, enemy placement, risk-reward zones and combat flow."]],
+ links:[["Watch trailer","https://youtu.be/yjipXpGEbDo",1],["My code","https://github.com/maltrak007/GonzaloLinanGhunterCode"],["Full project","https://github.com/IsFriskis/ghuntercode"]],
+ next:"hobo-league"},
+"hobo-league":{title:"Hobo League",kicker:"Solo project · In progress",
+ sub:"A third-person multiplayer brawler. Stand up against sadistic machines, survive the trials and earn your freedom.",
+ facts:[["Team","Solo"],["Engine","Unreal Engine 5, C++"],["Focus","GAS + network replication"],["Time","June 2025 – present"]],
+ hero:true,
+ overview:"Hobo League is where I build production-grade multiplayer combat on my own. Everything sits on the Gameplay Ability System in C++, and every system exposes its parameters to Blueprints so it can be tuned without touching code.",
+ role:["Combat architecture in C++","Gameplay Ability System","Multiplayer replication","Dynamic environments"],
+ sections:[
+  ["Gameplay Ability System from scratch","I architected a modular combat system on GAS in C++, exposing flexible parameters to Blueprints for a data-driven designer workflow, and built the rest of the game’s systems around it."],
+  ["Built for multiplayer","Abilities and combat state are built on GAS’s replication model from the start, so the combat is multiplayer by design rather than ported to it later."],
+  ["Event-driven combat","An event-driven framework on Gameplay Tags synchronises animation-driven attacks with context-sensitive reactions."],
+  ["Dynamic environments","World Partition and Chaos Destruction drive real-time level changes that react to player actions and physics forces."]],
+ links:[["View repository","https://github.com/maltrak007/HoboLeagueProject",1]],
+ next:"monster-evicter"},
+"monster-evicter":{title:"Monster Evicter",kicker:"Master’s final project · Solo",
+ sub:"Fast-paced third-person action: play a mage evicting monsters against the clock by exploiting their weaknesses with spells.",
+ facts:[["Team","Solo"],["Engine","Unity, C#"],["Role","Design & programming"],["Context","U-TAD Master’s"]],
+ hero:true,
+ overview:"Monster Evicter was my master’s final project at U-TAD, designed and programmed solo. It let me own a whole game: the design document, the enemy AI, the tools and the performance work that keeps it smooth.",
+ role:["Game design document","Enemy AI","Custom Unity tools","Performance"],
+ sections:[
+  ["Enemy AI state machines","A modular finite state machine for enemy AI, built from scratch and linked to the animation controllers."],
+  ["Performance","Object pooling and flyweight patterns reduced memory usage and garbage collection spikes."],
+  ["Tools for design","Custom inspector tools for rapid level design and enemy attribute balancing through ScriptableObjects."],
+  ["Game design document","I authored the full GDD: pillars, progression, difficulty curve and player engagement systems."]],
+ links:[["View repository","https://github.com/maltrak007/Monster-Evicter",1]],
+ next:"the-9th-dragon"}
+};
+var COLORS=[["#7FE6EF","#6FD8E2"],["#FAA622","#F29A12"],["#C4D70C","#B6C90A"],["#FFE52C","#F5D91A"],["#FF8A5C","#F57B4C"]];
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function ytId(u){var m=String(u).match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);return m?m[1]:null;}
+function playBtn(id,label){return '<img src="https://img.youtube.com/vi/'+id+'/maxresdefault.jpg" alt="'+esc(label)+'" data-yt="'+id+'"><button class="play" type="button" data-yt="'+id+'" aria-label="Play '+esc(label)+'"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>';}
+function mediaHTML(url,i,label){
+ url=(url||'').trim();
+ if(!url){var c=COLORS[i%COLORS.length];return '<div class="card" style="--c1:'+c[0]+';--c2:'+c[1]+'"><div class="num">'+String(i+1).padStart(2,'0')+'</div><div class="lbl">'+esc(label)+'</div><div class="soon">Clip coming soon</div></div>';}
+ var y=ytId(url); if(y) return playBtn(y,label);
+ if(/\.(mp4|webm|mov)(\?|$)/i.test(url)||/video\.wixstatic\.com/.test(url)) return '<video src="'+esc(url)+'" autoplay muted loop playsinline></video>';
+ return '<img src="'+esc(url)+'" alt="'+esc(label)+'">';
+}
+var base='..';
+var P=DATA[PROJECT], M=MEDIA[PROJECT]||[];
+var h='';
+h+='<div class="top"><a class="btn dark" href="'+base+'/">← Back to portfolio</a><span class="who">Gonzalo Liñán · Combat Designer &amp; Gameplay Programmer</span></div>';
+h+='<section class="hero"><div class="hero-head"><p class="kicker">'+esc(P.kicker)+'</p><h1>'+esc(P.title)+'</h1><p class="sub">'+esc(P.sub)+'</p>';
+if(P.awards){h+='<div class="awards">'+P.awards.map(function(a){return '<span class="award">'+esc(a)+'</span>';}).join('')+'</div>';}
+h+='</div><div class="facts">'+P.facts.map(function(f){return '<div class="fact"><b>'+esc(f[0])+'</b>'+esc(f[1])+'</div>';}).join('')+'</div>';
+if(P.yt){h+='<div class="slot">'+playBtn(P.yt,P.title+' trailer')+'</div>';}
+else{var hm=(HERO_MEDIA[PROJECT]||'').trim();h+='<div class="slot">'+(hm?mediaHTML(hm,0,P.title):'<div class="card" style="--c1:#C22303;--c2:#B01F02"><div class="num" style="font-size:96px">'+esc(P.title)+'</div><div class="soon">Gameplay video coming soon</div></div>')+'</div>';}
+h+='</section>';
+h+='<div class="sec-title"><h2>Overview</h2></div><div class="overview"><div class="box"><p>'+esc(P.overview)+'</p></div><div class="box role"><h3>My role</h3><ul>'+P.role.map(function(r){return '<li>'+esc(r)+'</li>';}).join('')+'</ul></div></div>';
+h+='<div class="sec-title"><h2>Deep dive</h2></div><div class="deep">';
+P.sections.forEach(function(s,i){h+='<div class="row'+(i%2?' flip':'')+'"><div class="media"><div class="slot">'+mediaHTML(M[i],i,s[0])+'</div></div><div class="box"><span class="tag">'+String(i+1).padStart(2,'0')+'</span><h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></div></div>';});
+h+='</div>';
+var N=DATA[P.next];
+h+='<section class="end"><div><h2>Want to see more?</h2><p>Check the code, watch it in motion or jump to the next project.</p><div class="links" style="margin-top:18px">'+P.links.map(function(l){return '<a class="btn'+(l[2]?' next':'')+'" href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+'</a>';}).join('')+'</div></div><a class="btn next" href="'+base+'/'+P.next+'/">Next: '+esc(N.title)+' →</a></section>';
+h+='<footer>© 2026 Gonzalo Liñán Aldana</footer>';
+document.getElementById('page').innerHTML=h;
+document.title=P.title+' | Gonzalo Liñán';
+document.querySelectorAll('.slot').forEach(function(sl){
+ var img=sl.querySelector('img[data-yt]'); if(img){var id=img.getAttribute('data-yt');var chk=function(){if(img.naturalWidth&&img.naturalWidth<=120&&img.src.indexOf('maxres')>-1){img.src='https://img.youtube.com/vi/'+id+'/hqdefault.jpg';}};if(img.complete)chk();else img.addEventListener('load',chk);}
+ var b=sl.querySelector('.play'); if(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0';f.title='YouTube video player';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;sl.innerHTML='';sl.appendChild(f);});}
+});
+</script>
+</body>
+</html>

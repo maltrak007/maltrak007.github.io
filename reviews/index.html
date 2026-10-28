@@ -1,0 +1,51 @@
+---
+layout: null
+title: Game Reviews
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Reviews | Gonzalo Liñán</title>
+<meta name="description" content="Game reviews by Gonzalo Liñán: combat, enemy AI, game feel and player experience, broken down with GIFs and captures.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/reviews.css' | relative_url }}">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="btn dark" href="{{ '/' | relative_url }}">← Back to portfolio</a>
+    <span class="who">Gonzalo Liñán · Combat Designer &amp; Gameplay Programmer</span>
+  </div>
+  <section class="head">
+    <p class="kicker">Game reviews</p>
+    <h1>Dissecting the games I play</h1>
+    <p>Write-ups with GIFs and captures where I break games down the way I build them: how the combat reads, how enemies think and how it all feels in the player’s hands.</p>
+  </section>
+  {% if site.posts.size > 0 %}
+  <div class="grid">
+    {% for post in site.posts %}
+    <a class="rv" href="{{ post.url | relative_url }}">
+      <div class="thumb">{% if post.cover %}<img src="{{ post.cover | relative_url }}" alt="{{ post.game | default: post.title }}" loading="lazy">{% else %}<div class="ph"><b>{{ post.game | default: post.title }}</b></div>{% endif %}</div>
+      <div class="c">
+        <p class="meta">{{ post.date | date: "%d %b %Y" }}{% if post.platform %} · {{ post.platform }}{% endif %}</p>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.summary | default: post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty">
+    <h2>First reviews coming soon</h2>
+    <p>I’m writing up the games I’ve been playing. Check back shortly.</p>
+  </div>
+  {% endif %}
+  <footer>© {{ site.time | date: "%Y" }} Gonzalo Liñán Aldana</footer>
+</div>
+</body>
+</html>
